@@ -10,7 +10,9 @@ The implementation follows the decoder-only Transformer architecture illustrated
 
 ## Dataset
 
-Used the **Tiny Shakespeare** dataset to train the language model. The model learns to generate text by predicting the next token based on previously observed tokens.
+Used the **Tiny Shakespeare** dataset to train a character-level language model.
+
+The model learns to generate text by predicting the next character based on a sequence of previously observed characters.
 
 ## Implementation
 
@@ -18,7 +20,7 @@ All major architectural components were implemented manually using PyTorch, with
 
 Key components implemented:
 
-- Token Embeddings
+- Character Embeddings
 - Positional Embeddings
 - Masked Self-Attention
 - Multi-Head Self-Attention
@@ -27,13 +29,19 @@ Key components implemented:
 - Layer Normalization
 - Transformer Decoder Blocks
 - Language Modelling Head
-- Autoregressive Next-Token Prediction
+- Autoregressive Next-Character Prediction
 
 ## Objective
 
 The primary objective of this project was not to achieve a high validation score or build a production-level language model.
 
-Instead, the focus was on developing a deeper understanding of the GPT architecture by implementing its individual components from scratch, including the mathematical concepts behind attention mechanisms, causal masking, and the overall transformer architecture.
+Instead, the focus was on developing a deeper understanding of the GPT architecture by implementing its individual components from scratch, including the mathematical concepts behind attention mechanisms, causal masking, and the overall Transformer architecture.
+
+## Training
+
+The model was trained on the Tiny Shakespeare dataset using **character-level next-character prediction**.
+
+Given a sequence of input characters, the model learns to predict the next character autoregressively. Training and validation loss were monitored to evaluate the learning process.
 
 ## Tech Stack
 
@@ -41,7 +49,6 @@ Instead, the focus was on developing a deeper understanding of the GPT architect
 - PyTorch
 - Google Colab
 - Tiny Shakespeare Dataset
-
 ## Training
 
 The model was trained on the Tiny Shakespeare dataset using next-token prediction.
